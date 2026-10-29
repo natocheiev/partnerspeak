@@ -89,3 +89,19 @@
     color: #fafafa;
   }
 }
+
+/* Сторінка з постійно темною версткою ставить <html data-theme="dark"> */
+[data-theme="dark"] .nav {
+  background: #18181b;
+  border-color: #27272a;
+  color: #a1a1aa;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-current {
+  background: #27272a;
+}
+
+[data-theme="dark"] .nav-current {
+  color: #fafafa;
+}

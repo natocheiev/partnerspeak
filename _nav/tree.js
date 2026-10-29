@@ -5,4 +5,7 @@
 // Гілка:     { branch: "Назва", pages: [ ...сторінки ] }  — заводиться разом зі своєю першою сторінкою
 window.NAV_TREE = [
   { title: "Головна", href: "index.html" },
+  { branch: "Ресерч", pages: [
+    { title: "Ресерч: зведення", href: "research/research.html" },
+  ] },
 ];

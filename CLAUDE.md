@@ -210,6 +210,8 @@
 
 Репо: https://github.com/natocheiev/partnerspeak · Сайт (GitHub Pages): https://natocheiev.github.io/partnerspeak/
 
+Висновки ресерчу — у `research/research.md` (HTML-подання — `research/research.html`).
+
 ## Навігатор
 
 - Нова HTML-сторінка підключає навігатор (`_nav/nav.css`, `_nav/tree.js`, `_nav/nav.js` з `data-root` — шляхом до кореня репо) і стає рядком у `_nav/tree.js` у тому самому кроці.

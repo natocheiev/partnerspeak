@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="uk" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ресерч — PartnerSpeak</title>
+  <link rel="stylesheet" href="../_nav/nav.css">
+  <script src="../_nav/tree.js" defer></script>
+  <script src="../_nav/nav.js" data-root="../" defer></script>
+  <style>
+    :root {
+      --bg: #0b0b0e;
+      --surface: #131317;
+      --surface-2: #1a1a20;
+      --border: #26262d;
+      --text: #e7e7ea;
+      --muted: #9a9aa3;
+      --accent: #8ab4ff;
+      --warn-bg: #3a2a0c;
+      --warn: #f5c46b;
+      --concl: #c4b5fd;
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 1120px; padding: 48px 40px 96px; }
+    header h1 { margin: 0 0 12px; font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; }
+    .lead { margin: 0 0 24px; color: var(--muted); }
+    .lead p { margin: 0 0 4px; }
+    .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 40px; }
+    .toc a {
+      padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px;
+      color: var(--text); text-decoration: none; font-size: 13px; background: var(--surface);
+    }
+    .toc a:hover { border-color: var(--accent); }
+    section { padding-top: 8px; margin-bottom: 56px; scroll-margin-top: 16px; }
+    h2 { font-size: 24px; margin: 0 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 17px; margin: 32px 0 12px; scroll-margin-top: 16px; }
+    p { margin: 0 0 12px; max-width: 760px; }
+    ul, ol { margin: 0 0 12px; padding-left: 22px; max-width: 820px; }
+    li { margin: 4px 0; }
+    li > ul, li > ol { margin: 4px 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: #fff; font-weight: 600; }
+    code { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+    em.concl { color: var(--concl); font-style: normal; font-weight: 600; }
+    .tag { display: inline-block; padding: 0 6px; border-radius: 4px; font-size: 12px; line-height: 18px; white-space: nowrap; }
+    .tag.warn { background: var(--warn-bg); color: var(--warn); }
+    .tag.muted { background: var(--surface-2); color: var(--muted); border: 1px solid var(--border); }
+    .note { color: var(--muted); font-size: 14px; }
+
+    .table-wrap { overflow-x: auto; margin: 0 0 20px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; }
+    th, td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+    thead th { background: var(--surface-2); color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+    tbody tr:last-child > * { border-bottom: 0; }
+    tbody tr:hover > * { background: rgba(255,255,255,0.02); }
+
+    table.matrix { font-size: 13px; line-height: 1.5; }
+    table.matrix td { min-width: 260px; }
+    table.matrix th[scope=row], table.matrix thead th:first-child {
+      position: sticky; left: 0; z-index: 1; min-width: 150px; max-width: 170px;
+      background: var(--surface-2); color: var(--text); text-transform: none; letter-spacing: 0; font-size: 13px;
+      border-right: 1px solid var(--border);
+    }
+
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; margin: 0 0 24px; }
+    .shots { margin: 0; padding: 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+    .shots figcaption { font-weight: 600; margin: 0 0 12px; }
+    .shot-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .shot { display: block; color: var(--muted); font-size: 12px; text-decoration: none; }
+    .shot img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 600; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--border); background: #fff; margin-bottom: 6px; }
+    .shot:hover img { border-color: var(--accent); }
+
+    footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); padding-top: 16px; }
+
+    @media (max-width: 700px) {
+      main { padding: 24px 16px 64px; }
+      header h1 { font-size: 26px; }
+      .gallery { grid-template-columns: 1fr; }
+      .shot-row { gap: 8px; }
+      table.matrix td { min-width: 220px; }
+      table.matrix th[scope=row], table.matrix thead th:first-child { min-width: 110px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Ресерч: зведення кроків 03–06</h1>
+      <div class="lead"><p>29.10.2026. Зібрано з нотаток у <a href="https://github.com/natocheiev/partnerspeak/tree/main/research/notes/" target="_blank" rel="noopener">research/notes/</a>. Нового пошуку немає: кожен факт узято з нотаток кроків 03–06 разом із їхнім джерелом.</p><p>Бриф продукту — <a href="https://github.com/natocheiev/partnerspeak/blob/main/CLAUDE.md" target="_blank" rel="noopener">CLAUDE.md</a>.</p></div>
+      <nav class="toc" aria-label="Розділи"><a href="#data">Звідки дані</a><a href="#competitors">Конкуренти</a><a href="#benchmark">Бенчмарк</a><a href="#patterns">Патерни</a><a href="#conclusions">Висновки</a><a href="#sources">Джерела</a></nav>
+    </header>
+<section id="data">
+<h2>Звідки дані</h2>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Звідки</th>
+<th>Що взято</th>
+</tr></thead><tbody>
+<tr><td><strong>Мій власний акаунт</strong></td><td><strong>Нічого.</strong> Теки <code>research/screens/own/</code> немає. Кабінети за логіном не відкривались, застосунки не встановлювались. Де екран видно лише після входу, написано «<span class="tag muted">доступ обмежений</span>».</td></tr>
+<tr><td><strong>Публічні сторінки</strong></td><td>Усе в цьому файлі: сайти компаній, сторінки App Store і Google Play (опис, підписи скрінів, відгуки), центри допомоги й FAQ, Reddit, статті. Скріни публічних сторінок зняв Playwright у <a href="https://github.com/natocheiev/partnerspeak/tree/main/research/screens/" target="_blank" rel="noopener">research/screens/</a>.</td></tr>
+</tbody></table></div>
+<p><strong>Позначки:</strong></p>
+<ul><li>
+[скрін] — файл у <code>research/screens/</code>; [AS] — App Store; [GP] — Google Play; [сайт], [help], [FAQ] — сторінки компанії.
+</li><li>
+<em class="concl">Висновок:</em> — моя оцінка на основі фактів, а не факт.
+</li><li>
+<strong><span class="tag warn">дані не підтверджені</span></strong> — джерела немає або воно суперечливе. У матриці те саме позначено словом «перевірити».
+</li></ul>
+</section>
+<section id="competitors">
+<h2>1. Конкуренти</h2>
+<p>Шість продуктів з трьох груп кроку 03:</p>
+<ul><li>
+<strong>хард:</strong> Paired, SumOne, Agapé, Couple Joy (останній додано на запит власника);
+</li><li>
+<strong>софт:</strong> Gottman Card Decks;
+</li><li>
+<strong>аспіраційна:</strong> BeReal.
+</li></ul>
+<p>Чому саме вони — <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/03-competitors.md" target="_blank" rel="noopener">notes/03-competitors.md</a> і <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/04-matrix.md" target="_blank" rel="noopener">notes/04-matrix.md</a>. SumOne замінив Candle 29.10.2026 за рішенням власника.</p>
+<h3>Матриця</h3>
+<p>Перенесено з кроку 04 без змін, оновлено лише шляхи до скрінів. Осі взято з брифу: розділ 1 (головний принцип «об'єднувати») і розділ 7 (MVP, пункт 2 — щоденний ритуал пари).</p>
+<div class="table-wrap"><table class="matrix">
+<thead><tr>
+<th>Вісь</th>
+<th>Paired</th>
+<th>SumOne</th>
+<th>Agapé</th>
+<th>Gottman Card Decks</th>
+<th>BeReal</th>
+<th>Couple Joy</th>
+</tr></thead><tbody>
+<tr><th scope="row"><strong>1. Перший екран</strong></th><td><strong>Сайт:</strong><br>• «★4.7 300k+ reviews»<br>• заголовок «Feel closer as a couple»<br>• «Daily conversations to stay connected.»<br>• кнопка «Try for free»<br>• фото пари з двома репліками «I love our…»<br>• банер «Install now» <a href="screens/paired-site-first-screen.png">скрін</a><br><strong>App Store:</strong> підписи скрінів — «#1 Couples App», «The app that brings couples closer», «Reveal your partner's answer», «1000s of quizzes, games and questions» <a href="screens/paired-appstore-full.png">скрін</a> · <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a><br><strong>Застосунок:</strong> <span class="tag muted">доступ обмежений</span></td><td><strong>Сайт:</strong><br>• sumone.co — заглушка WordPress: «Nothing Found», «Lorem ipsum» у блоці About, поле пошуку корейською. Продукт не показано, у футері лише контакти й реквізити MonyMony Corp. <a href="screens/sumone-site-first-screen.png">скрін</a><br>• Посилання з App Store (sumone.co/en) веде на Terms of Service<br><strong>App Store:</strong> «Daily question game for couple», ★4.9 · 19K. Підписи скрінів — «10M+ users» і «Couple App — The Sum of your Love!», «One question a day to get to know each other better», «Daily questions», «Special couple EggMon» <a href="screens/sumone-appstore-full.png">скрін</a> · <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• В описі тієї ж сторінки — «6 Million people»: розбіжність з «10M+» на скріні<br><strong>Застосунок:</strong> <span class="tag muted">доступ обмежений</span></td><td><strong>Сайт:</strong><br>• «Which couple would you rather be tonight?»<br>• «Spark meaningful conversation, in 1 minute or less…»<br>• кнопки App Store і Google Play<br>• ілюстрація пари в ліжку з перемикачем «Before Agapé → After Agapé» <a href="screens/agape-site-first-screen.png">скрін</a><br><strong>App Store:</strong> підписи — «Answer one curated question every day», «Add your friends, family, and partner», «Meaningful convo with those you value» <a href="screens/agape-appstore-full.png">скрін</a> · <a href="https://apps.apple.com/us/app/id1507907556" target="_blank" rel="noopener">AS</a><br><strong>Застосунок:</strong> <span class="tag muted">доступ обмежений</span></td><td><strong>Сайт:</strong><br>• банер «October sale — Shop now»<br>• «My Account», кошик<br>• заголовок «Gottman Card Decks App — A relationship app from The Gottman Institute»<br>• текст про дослідження Інституту <a href="screens/gottman-site-first-screen.png">скрін</a><br><strong>Застосунок</strong> (видно на скрінах App Store):<br>• «Welcome to Gottman Card Decks»<br>• «Want to improve your relationship? This app has questions you can ask your partner…»<br>• кнопка «Get Started»<br>• далі сітка колод: Give Appreciation, I Feel, Salsa, Expressing Needs, Great Listening… <a href="screens/gottman-appstore-full.png">скрін</a> · <a href="https://apps.apple.com/us/app/id1292398843" target="_blank" rel="noopener">AS</a></td><td><strong>Сайт:</strong><br>• відеофон<br>• «Your daily dose of real life.»<br>• «Get the app ↗»<br>• cookie-банер (знято після «Reject all») <a href="screens/bereal-site-first-screen.png">скрін</a><br><strong>App Store:</strong> підписи — «One notification, two minutes» (таймер 01:30 і пуш «Time to BeReal»), «Friends and Celebs Post at the Same Time» <a href="screens/bereal-appstore-full.png">скрін</a> · <a href="https://apps.apple.com/us/app/id1459645446" target="_blank" rel="noopener">AS</a><br><strong>Застосунок:</strong> <span class="tag muted">доступ обмежений</span></td><td><strong>Сайт:</strong><br>• кнопка «Try for Free»<br>• «Your relationship is about to become 10x better.»<br>• кнопки App Store і Google Play<br>• два макети застосунку: Timeline зі спогадами і «Questions &amp; Games» з вкладками «All / Your turn (3) / Answered» та блоком «Daily Conversation · NEXT IN 07:25:55 · What did you learn a little bit too late? · ANSWER» з двома аватарами <a href="screens/couplejoy-site-first-screen.png">скрін</a><br><strong>App Store:</strong> підписи — «#1 App for Couples» (фото пари, «Together for 11 years…»), «Many cute widgets», «Answer over 3000 questions», «Save your favorite moments» <a href="screens/couplejoy-appstore-full.png">скрін</a> · <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a><br><strong>Застосунок:</strong> <span class="tag muted">доступ обмежений</span> (на сайті лише макети)</td></tr>
+<tr><th scope="row"><strong>2. Ключова задача: щоденний ритуал пари, взаємне відкриття</strong></th><td>1. Акаунт: ім'я і фото.<br>2. «Invite Partner»: унікальне посилання або 6-значний код. Є також на Home і Us <a href="https://support.paired.com/en/articles/164636-how-do-i-pair-with-my-partner" target="_blank" rel="noopener">help</a><br>3. Щоденне питання: «Add your answers… then unlock your partner's responses» <a href="https://play.google.com/store/apps/details?id=com.getpaired.app" target="_blank" rel="noopener">GP</a><br>4. Відповіді закриті, доки не відповіли обоє (відгук Evajan_bieber) <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a><br>5. Після сплати пробного періоду підписка синхронізується на пару <a href="https://support.paired.com/en/articles/164636-how-do-i-pair-with-my-partner" target="_blank" rel="noopener">help</a><br>Як працює без партнера, на публічних сторінках не сказано: <span class="tag muted">доступ обмежений</span></td><td>• Одне питання на день для обох, «at a time of your choice» <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• Відповідь партнера видно лише після своєї (користувач, що веде пару близько року) <a href="https://www.reddit.com/r/LDR/comments/1mxko5y/free_app_for_couples_to_connect/" target="_blank" rel="noopener">Reddit</a><br>• Скрін «Daily questions»: відповіді обох під одним питанням і лічильник коментарів <a href="screens/sumone-appstore-full.png">скрін</a><br>• Без підписки: ліміт 200 символів, 400 — за перегляд реклами, реклама після кожної відповіді (відгук Atsushilover) <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• Як підключається партнер, публічно не описано: <span class="tag muted">доступ обмежений</span></td><td>• Одне питання на день, персоналізоване під тип стосунків<br>• «you're only able to see each other's response, once you have both responded» <a href="https://play.google.com/store/apps/details?id=com.getdailyagape" target="_blank" rel="noopener">GP</a><br>• Сайт показує 3 кроки: питання → обоє відповіли → бачите відповіді → бали за відповіді <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">сайт</a><br>• Без пари доступні лише спогади. Питання з'являються після з'єднання. Одиноким користувачам «not at this time» <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">FAQ</a></td><td>• Щоденного ритуалу, з'єднання пари і взаємного відкриття немає<br>• Один телефон: обрати колоду → картка → поставити питання партнеру наживо<br>• Зірка зберігає картку в «Favorites» <a href="https://www.gottman.com/couples/apps/" target="_blank" rel="noopener">сайт</a> · <a href="https://apps.apple.com/us/app/id1292398843" target="_blank" rel="noopener">AS</a></td><td>Аналог механіки, не для пари:<br>• раз на день у випадковий час пуш усім одночасно, 2 хвилини на фото <a href="https://apps.apple.com/us/app/id1459645446" target="_blank" rel="noopener">AS</a><br>• «Capture and post in time to discover what your Friends are up to» <a href="https://play.google.com/store/apps/details?id=com.bereal.ft" target="_blank" rel="noopener">GP</a><br>• Пости друзів розмиті, доки не опублікуєш свій <a href="https://www.webwise.ie/trending/explained-what-is-bereal/" target="_blank" rel="noopener">webwise.ie</a> · <a href="https://kompas.wasmer.app/https_www_cnet_com/tech/services-and-software/no-filters-allowed-this-up-and-coming-social-media-app-aims-for-authenticity" target="_blank" rel="noopener">CNET</a></td><td>• Партнер підключається кодом, який один надсилає іншому (огляд WhistleOut, сторінка віддає 403, перевірити) <a href="https://www.whistleout.com/CellPhones/Apps/couple-joy-relationship-app" target="_blank" rel="noopener">WhistleOut</a><br>• Щоденні питання й ігри: Never Have I Ever, Would You Rather, Who's more likely <a href="screens/couplejoy-site-first-screen.png">скрін</a><br>• Відповідь партнера і обговорення — «once you both answered» (старий опис від попереднього видавця Joyful Apps) <a href="https://www.mergeek.com/latest/ZG9o3n3rq62mKMqg" target="_blank" rel="noopener">Mergeek</a><br>• «Chat in real-time about your quiz answers» <a href="https://play.google.com/store/apps/details?id=com.angcosmin.couple" target="_blank" rel="noopener">GP</a><br>• У free, за відгуком, по одному набору в категорії, близько 9 наборів <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a></td></tr>
+<tr><th scope="row"><strong>3. «Об'єднувати» — чи видно одразу</strong></th><td><strong>Так.</strong><br>• Заголовок «Feel closer as a couple»<br>• Дві репліки від двох людей на фото <a href="screens/paired-site-first-screen.png">скрін</a><br>• У App Store третій екран — «Reveal your partner's answer» <a href="screens/paired-appstore-full.png">скрін</a><br><em class="concl">Висновок:</em> єдиний, хто на першому екрані словами каже «ближче» і показує обох.</td><td><strong>Так у сторі, ні на сайті.</strong><br>• App Store: «Couple App», «The Sum of your Love!», «One question a day to get to know each other better» <a href="screens/sumone-appstore-full.png">скрін</a><br>• Сайт продукту не показує взагалі <a href="screens/sumone-site-first-screen.png">скрін</a><br><em class="concl">Висновок:</em> «нас двох» зчитується одразу, але через милоту й улюбленця, а не через обіцянку близькості. Два з чотирьох скрінів показують яйце EggMon.</td><td><strong>Так, але розмито.</strong><br>• Сайт: «Which couple would you rather be tonight?» і «до/після» пари <a href="screens/agape-site-first-screen.png">скрін</a><br>• App Store: підзаголовок «Friends, Family, Couples», «Add your friends, family, and partner» <a href="screens/agape-appstore-full.png">скрін</a><br><em class="concl">Висновок:</em> сайт продає пару, стор — будь-які стосунки.</td><td><strong>Ні на сайті, так у застосунку.</strong><br>• Перший екран сайту — розпродаж, акаунт, кошик, бренд Інституту <a href="screens/gottman-site-first-screen.png">скрін</a><br>• Перший екран застосунку: «questions you can ask your partner» <a href="screens/gottman-appstore-full.png">скрін</a><br><em class="concl">Висновок:</em> «разом» сказано, але як інструмент, а не як досвід.</td><td><strong>Так</strong> (для друзів).<br>• «Friends and Celebs Post at the Same Time» <a href="screens/bereal-appstore-full.png">скрін</a><br>• Розділ «Meaningful Connections» на сайті <a href="https://bereal.com" target="_blank" rel="noopener">сайт</a><br><em class="concl">Висновок:</em> «разом» тут означає «в один момент», а не «одне одному».</td><td><strong>Так, через інтерфейс.</strong><br>• Під щоденним питанням два аватари і вкладка «Your turn»<br>• Перший скрін App Store — фото пари і лічильник «Together for» <a href="screens/couplejoy-site-first-screen.png">скрін</a> · <a href="screens/couplejoy-appstore-full.png">скрін</a><br><em class="concl">Висновок:</em> єдиний, хто показує сам ритуал пари на першому екрані сайту. Але заголовок — гучна обіцянка «10x better», а не «ближче».</td></tr>
+<tr><th scope="row"><strong>4. Як задача завершується</strong></th><td>• Після відкриття відповідей — обговорення: «unlock… to start a discussion» <a href="https://play.google.com/store/apps/details?id=com.getpaired.app" target="_blank" rel="noopener">GP</a><br>• Стрік особистий у кожного, «Streak Freeze» застосовується автоматично <a href="https://support.paired.com/en/articles/164646-what-is-a-streak" target="_blank" rel="noopener">help</a><br>• Відновити зламаний стрік можна лише в Premium, якщо він був від 7 днів <a href="https://support.paired.com/en/articles/164646-what-is-a-streak" target="_blank" rel="noopener">help</a><br>• Відгук: після кінця пробного періоду відповіді партнера стали недоступні <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a></td><td>• Відповіді вирощують спільного улюбленця EggMon, з часом він вилуплюється в нову форму <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• До відповіді можна додати емоцію дня, наприкінці місяця Hakoo збирає «the record of your love» <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• Коментарі під відповідями <a href="https://www.reddit.com/r/LDR/comments/1mxko5y/free_app_for_couples_to_connect/" target="_blank" rel="noopener">Reddit</a> · <a href="screens/sumone-appstore-full.png">скрін</a><br>• Валюта pebbles на декор кімнати EggMon: за відвідування, годування й рекламу (відповідь розробника у відгуках) <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• Стріку в описі стору немає <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a> · <a href="https://play.google.com/store/apps/details?id=com.sumone" target="_blank" rel="noopener">GP</a><br>• Відгук після 2 років і 200+ питань: питання гіршають, годувати EggMon 3–4 рази — «a waste of time» <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>• Відгук: «The ads are getting out of control!» <a href="https://play.google.com/store/apps/details?id=com.sumone" target="_blank" rel="noopener">GP</a></td><td>• Обоє бачать відповіді<br>• Бали за довжину й швидкість відповіді, бонус за 7 днів поспіль. 100 балів = участь у розіграші <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">FAQ</a><br>• Спогади можна коментувати (v3.73.0) <a href="screens/agape-appstore-full.png">скрін</a><br>• Відгук: питання повторюються, застосунок набрид за рік <a href="https://apps.apple.com/us/app/id1507907556" target="_blank" rel="noopener">AS</a></td><td>• Стану завершення немає: картка → розмова поза застосунком<br>• Лишається лише «Favorites» <a href="https://www.gottman.com/couples/apps/" target="_blank" rel="noopener">сайт</a><br>• Відгук: хочуть ділитися картками без скріншотів <a href="https://apps.apple.com/us/app/id1292398843" target="_blank" rel="noopener">AS</a></td><td>• Публікація відкриває стрічку друзів<br>• Запізнілий пост дозволено, але він позначений «late» <a href="https://en.wikipedia.org/wiki/BeReal" target="_blank" rel="noopener">Wikipedia</a><br>• Далі RealMojis і коментарі <a href="https://play.google.com/store/apps/details?id=com.bereal.ft" target="_blank" rel="noopener">GP</a></td><td>• Обговорення відповідей у чаті <a href="https://play.google.com/store/apps/details?id=com.angcosmin.couple" target="_blank" rel="noopener">GP</a><br>• Щоденний стрік. Відновлення продається окремо: «Streak Repair» від $0,99 за день до $3,99 за 4 дні <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a><br>• v4.29.0: стрік, відповіді й «days together» можна поширити в соцмережі <a href="screens/couplejoy-appstore-full.png">скрін</a><br>• Відгук: free «feels like a demo» <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a></td></tr>
+<tr><th scope="row"><strong>5. Мова інтерфейсу</strong></th><td><strong>EN, FR, DE</strong><br>«more languages soon to follow» <a href="https://support.paired.com/en/articles/164634-can-i-use-paired-in-another-language" target="_blank" rel="noopener">help</a> · <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a><br>Немає ES, PT, UK</td><td><strong>EN + 8</strong>: FR, DE, ES, JA, KO, TH, VI, традиційна китайська <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a><br>Немає PT, UK</td><td><strong>EN</strong> <a href="https://apps.apple.com/us/app/id1507907556" target="_blank" rel="noopener">AS</a><br>Немає ES, PT, UK</td><td><strong>EN</strong> <a href="https://apps.apple.com/us/app/id1292398843" target="_blank" rel="noopener">AS</a><br>Release notes 2.2.0 згадують іспанську — перевірити<br>Немає PT, UK</td><td><strong>EN + 13</strong>, серед них ES і PT <a href="https://apps.apple.com/us/app/id1459645446" target="_blank" rel="noopener">AS</a><br>На сайті є перемикач мови <a href="https://bereal.com" target="_blank" rel="noopener">сайт</a><br>Немає UK</td><td><strong>EN</strong> <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a><br>Немає ES, PT, UK</td></tr>
+</tbody></table></div>
+<h3 id="screens">Скріни публічних сторінок</h3>
+<p class="note">Перший екран на мобільному (390×844). Натисніть на скрін, щоб відкрити повну сторінку на десктопі. Скрінів власного акаунта немає: теки <code>research/screens/own/</code> не існує.</p>
+<div class="gallery">
+<figure class="shots"><figcaption>Paired</figcaption><div class="shot-row">
+<a class="shot" href="screens/paired-site-full.png" target="_blank" rel="noopener"><img src="screens/paired-site-first-screen.png" alt="Paired — Сайт, перший екран" loading="lazy" width="390" height="844"><span>Сайт</span></a>
+<a class="shot" href="screens/paired-appstore-full.png" target="_blank" rel="noopener"><img src="screens/paired-appstore-first-screen.png" alt="Paired — App Store, перший екран" loading="lazy" width="390" height="844"><span>App Store</span></a>
+<a class="shot" href="screens/paired-googleplay-full.png" target="_blank" rel="noopener"><img src="screens/paired-googleplay-first-screen.png" alt="Paired — Google Play, перший екран" loading="lazy" width="390" height="844"><span>Google Play</span></a>
+</div></figure>
+<figure class="shots"><figcaption>SumOne</figcaption><div class="shot-row">
+<a class="shot" href="screens/sumone-site-full.png" target="_blank" rel="noopener"><img src="screens/sumone-site-first-screen.png" alt="SumOne — Сайт, перший екран" loading="lazy" width="390" height="844"><span>Сайт</span></a>
+<a class="shot" href="screens/sumone-appstore-full.png" target="_blank" rel="noopener"><img src="screens/sumone-appstore-first-screen.png" alt="SumOne — App Store, перший екран" loading="lazy" width="390" height="844"><span>App Store</span></a>
+<a class="shot" href="screens/sumone-googleplay-full.png" target="_blank" rel="noopener"><img src="screens/sumone-googleplay-first-screen.png" alt="SumOne — Google Play, перший екран" loading="lazy" width="390" height="844"><span>Google Play</span></a>
+</div></figure>
+<figure class="shots"><figcaption>Agapé</figcaption><div class="shot-row">
+<a class="shot" href="screens/agape-site-full.png" target="_blank" rel="noopener"><img src="screens/agape-site-first-screen.png" alt="Agapé — Сайт, перший екран" loading="lazy" width="390" height="844"><span>Сайт</span></a>
+<a class="shot" href="screens/agape-appstore-full.png" target="_blank" rel="noopener"><img src="screens/agape-appstore-first-screen.png" alt="Agapé — App Store, перший екран" loading="lazy" width="390" height="844"><span>App Store</span></a>
+<a class="shot" href="screens/agape-googleplay-full.png" target="_blank" rel="noopener"><img src="screens/agape-googleplay-first-screen.png" alt="Agapé — Google Play, перший екран" loading="lazy" width="390" height="844"><span>Google Play</span></a>
+</div></figure>
+<figure class="shots"><figcaption>Gottman Card Decks</figcaption><div class="shot-row">
+<a class="shot" href="screens/gottman-site-full.png" target="_blank" rel="noopener"><img src="screens/gottman-site-first-screen.png" alt="Gottman Card Decks — Сайт, перший екран" loading="lazy" width="390" height="844"><span>Сайт</span></a>
+<a class="shot" href="screens/gottman-appstore-full.png" target="_blank" rel="noopener"><img src="screens/gottman-appstore-first-screen.png" alt="Gottman Card Decks — App Store, перший екран" loading="lazy" width="390" height="844"><span>App Store</span></a>
+<a class="shot" href="screens/gottman-googleplay-full.png" target="_blank" rel="noopener"><img src="screens/gottman-googleplay-first-screen.png" alt="Gottman Card Decks — Google Play, перший екран" loading="lazy" width="390" height="844"><span>Google Play</span></a>
+</div></figure>
+<figure class="shots"><figcaption>BeReal</figcaption><div class="shot-row">
+<a class="shot" href="screens/bereal-site-full.png" target="_blank" rel="noopener"><img src="screens/bereal-site-first-screen.png" alt="BeReal — Сайт, перший екран" loading="lazy" width="390" height="844"><span>Сайт</span></a>
+<a class="shot" href="screens/bereal-appstore-full.png" target="_blank" rel="noopener"><img src="screens/bereal-appstore-first-screen.png" alt="BeReal — App Store, перший екран" loading="lazy" width="390" height="844"><span>App Store</span></a>
+<a class="shot" href="screens/bereal-googleplay-full.png" target="_blank" rel="noopener"><img src="screens/bereal-googleplay-first-screen.png" alt="BeReal — Google Play, перший екран" loading="lazy" width="390" height="844"><span>Google Play</span></a>
+</div></figure>
+<figure class="shots"><figcaption>Couple Joy</figcaption><div class="shot-row">
+<a class="shot" href="screens/couplejoy-site-full.png" target="_blank" rel="noopener"><img src="screens/couplejoy-site-first-screen.png" alt="Couple Joy — Сайт, перший екран" loading="lazy" width="390" height="844"><span>Сайт</span></a>
+<a class="shot" href="screens/couplejoy-appstore-full.png" target="_blank" rel="noopener"><img src="screens/couplejoy-appstore-first-screen.png" alt="Couple Joy — App Store, перший екран" loading="lazy" width="390" height="844"><span>App Store</span></a>
+<a class="shot" href="screens/couplejoy-googleplay-full.png" target="_blank" rel="noopener"><img src="screens/couplejoy-googleplay-first-screen.png" alt="Couple Joy — Google Play, перший екран" loading="lazy" width="390" height="844"><span>Google Play</span></a>
+</div></figure>
+</div>
+<h3>Три спільні патерни ринку</h3>
+<ol><li>
+<strong>Взаємне відкриття — стандарт категорії, а не фішка.</strong>
+<ul><li>
+Відповідь партнера закрита, доки не відповів ти:
+<ul><li>
+Paired — «Add your answers… then unlock your partner's responses» <a href="https://play.google.com/store/apps/details?id=com.getpaired.app" target="_blank" rel="noopener">GP</a>;
+</li><li>
+Agapé — «only able to see each other's response, once you have both responded» <a href="https://play.google.com/store/apps/details?id=com.getdailyagape" target="_blank" rel="noopener">GP</a>;
+</li><li>
+SumOne — за словами користувача Reddit <a href="https://www.reddit.com/r/LDR/comments/1mxko5y/free_app_for_couples_to_connect/" target="_blank" rel="noopener">Reddit</a>;
+</li><li>
+Couple Joy — у старому описі попереднього видавця <a href="https://www.mergeek.com/latest/ZG9o3n3rq62mKMqg" target="_blank" rel="noopener">Mergeek</a>. Для поточної версії <span class="tag warn">дані не підтверджені</span>.
+</li></ul>
+</li><li>
+BeReal робить те саме з друзями: пости розмиті, доки не опублікуєш свій <a href="https://www.webwise.ie/trending/explained-what-is-bereal/" target="_blank" rel="noopener">webwise.ie</a>.
+</li><li>
+<em class="concl">Висновок:</em> для нас це вхідна вимога, а не відмінність.
+</li></ul>
+</li><li>
+<strong>Обіцянка «кілька хвилин на день» плюс захист звички.</strong>
+<ul><li>
+Обіцянки часу:
+<ul><li>
+Paired — «in just 5 minutes a day» <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a>;
+</li><li>
+Agapé — «in 1 minute or less» <a href="screens/agape-site-first-screen.png">скрін</a>;
+</li><li>
+BeReal — «One notification, two minutes» <a href="screens/bereal-appstore-full.png">скрін</a>;
+</li><li>
+SumOne тривалості не називає, але пара сама обирає час питання <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a>.
+</li></ul>
+</li><li>
+Захист звички:
+<ul><li>
+Paired — автоматична заморозка стріку <a href="https://support.paired.com/en/articles/164646-what-is-a-streak" target="_blank" rel="noopener">help</a>;
+</li><li>
+Agapé — бали за 7 днів поспіль <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">FAQ</a>;
+</li><li>
+Couple Joy — платне відновлення стріку <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a>;
+</li><li>
+SumOne — улюбленець EggMon, який росте від відповідей <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a>.
+</li></ul>
+</li></ul>
+</li><li>
+<strong>Перший екран продає емоцію й соцдоказ, а не процес.</strong>
+<ul><li>
+Paired — «★4.7 300k+ reviews» <a href="screens/paired-site-first-screen.png">скрін</a>.
+</li><li>
+SumOne — «10M+ users» <a href="screens/sumone-appstore-first-screen.png">скрін</a>.
+</li><li>
+Couple Joy — «#1 App for Couples» <a href="screens/couplejoy-appstore-full.png">скрін</a>.
+</li><li>
+Agapé — «Before Agapé → After Agapé» <a href="screens/agape-site-first-screen.png">скрін</a>.
+</li><li>
+Сам ритуал пари на першому екрані сайту показує лише Couple Joy: щоденне питання з двома аватарами <a href="screens/couplejoy-site-first-screen.png">скрін</a>.
+</li><li>
+<em class="concl">Висновок</em> з переглянутих скрінів: як підключити партнера, на першому екрані не показує ніхто.
+</li></ul>
+</li></ol>
+<h3>Три відмінності</h3>
+<ol><li>
+<strong>Хто такий «партнер».</strong>
+<ul><li>
+Строго пара:
+<ul><li>
+Paired — «Feel closer as a couple» <a href="screens/paired-site-first-screen.png">скрін</a>;
+</li><li>
+SumOne — «Couple App» <a href="screens/sumone-appstore-full.png">скрін</a>;
+</li><li>
+Couple Joy — «#1 App for Couples» <a href="screens/couplejoy-appstore-full.png">скрін</a>.
+</li></ul>
+</li><li>
+Будь-які стосунки: Agapé — «Add your friends, family, and partner» <a href="screens/agape-appstore-full.png">скрін</a>.
+</li><li>
+Синхронізації немає, один телефон на двох: Gottman Card Decks <a href="https://www.gottman.com/couples/apps/" target="_blank" rel="noopener">сайт</a>.
+</li><li>
+Соло-ритуал:
+<ul><li>
+Agapé без пари показує лише спогади, одиноким — «not at this time» <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">FAQ</a>;
+</li><li>
+у Paired, SumOne і Couple Joy публічно не описано: <span class="tag muted">доступ обмежений</span>, <span class="tag warn">дані не підтверджені</span>.
+</li></ul>
+</li></ul>
+</li><li>
+<strong>Модель стріку і що буває з утраченим.</strong>
+<ul><li>
+Paired: стрік особистий, відновлення лише в Premium <a href="https://support.paired.com/en/articles/164646-what-is-a-streak" target="_blank" rel="noopener">help</a>. За відгуком, після пробного періоду відповіді партнера стали недоступні <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a>.
+</li><li>
+Couple Joy: відновлення кожного дня окремо, $0,99–3,99 <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a>.
+</li><li>
+Agapé: бали й розіграші <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">FAQ</a>.
+</li><li>
+SumOne: стріку в описі немає. Валюту pebbles дають за відвідування, годування улюбленця й рекламу <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a>.
+</li><li>
+Gottman Card Decks: стріку немає, лишаються лише «Favorites» <a href="https://www.gottman.com/couples/apps/" target="_blank" rel="noopener">сайт</a>.
+</li><li>
+<em class="concl">Висновок:</em> продаж утраченого суперечить принципу брифу «не забирати безкоштовне» (розділ 8).
+</li></ul>
+</li><li>
+<strong>Мови.</strong>
+<ul><li>
+Paired: EN, FR, DE <a href="https://support.paired.com/en/articles/164634-can-i-use-paired-in-another-language" target="_blank" rel="noopener">help</a>.
+</li><li>
+BeReal: EN і ще 13, серед них ES і PT <a href="https://apps.apple.com/us/app/id1459645446" target="_blank" rel="noopener">AS</a>.
+</li><li>
+SumOne: EN і ще 8, серед них ES, без PT <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a>.
+</li><li>
+Agapé, Couple Joy, Gottman: лише EN за App Store <a href="https://apps.apple.com/us/app/id1507907556" target="_blank" rel="noopener">AS Agapé</a> · <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS Couple Joy</a> · <a href="https://apps.apple.com/us/app/id1292398843" target="_blank" rel="noopener">AS Gottman</a>.
+</li><li>
+Українська — ні в кого. Наш набір EN, ES, PT, UK (бриф, розділ 2) не закриває ніхто з шістьох.
+</li></ul>
+</li></ol>
+</section>
+<section id="benchmark">
+<h2>2. Бенчмарк</h2>
+<p>Повна версія з критеріями й оцінками — <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/05-benchmark.md" target="_blank" rel="noopener">notes/05-benchmark.md</a>.</p>
+<h3>Вимір: «Як задача завершується» (вісь 4 матриці)</h3>
+<p><strong>Чого не бачить людина:</strong> коли обоє відповіли, людина бачить відповідь партнера, але не бачить, що це дало <em>їм двом</em>. Немає спільного результату, підказки до розмови чи сліду, до якого можна повернутись.</p>
+<p>Чому саме ця вісь — на ній ринок найдалі від «об'єднувати». Факти з матриці:</p>
+<ul><li>
+<strong>Paired:</strong> після відкриття — лише «start a discussion» <a href="https://play.google.com/store/apps/details?id=com.getpaired.app" target="_blank" rel="noopener">GP</a>, відновлення стріку за Premium <a href="https://support.paired.com/en/articles/164646-what-is-a-streak" target="_blank" rel="noopener">help</a>.
+</li><li>
+<strong>Agapé:</strong> бали й розіграші <a href="https://www.getdailyagape.com" target="_blank" rel="noopener">FAQ</a>.
+</li><li>
+<strong>Couple Joy:</strong> платне відновлення стріку <a href="https://apps.apple.com/us/app/id1624758651" target="_blank" rel="noopener">AS</a>.
+</li><li>
+<strong>SumOne:</strong> відповіді вирощують улюбленця. Ближче за всіх до спільного результату — місячний підсумок емоцій, але раз на місяць і лише про настрій <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a>.
+</li><li>
+<strong>Gottman Card Decks:</strong> стану завершення немає — картка, а далі розмова поза застосунком <a href="https://www.gottman.com/couples/apps/" target="_blank" rel="noopener">сайт</a>.
+</li></ul>
+<p>Еталони з інших категорій і сума балів за 8 критеріями, з 40:</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Еталон</th>
+<th>Сума</th>
+<th>У чому найсильніший</th>
+</tr></thead><tbody>
+<tr><td>BeReal</td><td>30</td><td>розкриття, реакція, приватний архів</td></tr>
+<tr><td>Spotify Blend</td><td>25</td><td>спільний результат із двох смаків</td></tr>
+<tr><td>Strava</td><td>23</td><td>визнання одним дотиком</td></tr>
+<tr><td>Wordle</td><td>22</td><td>чіткий кінець дня</td></tr>
+<tr><td>Duolingo (Friend Streak і Friends Quest)</td><td>22</td><td>спільний прогрес, нагорода обом</td></tr>
+</tbody></table></div>
+<p><em class="concl">Висновок:</em> бали — моя оцінка за фактами з 05, а не дані.</p>
+<h3>Топ-3 механізми для MVP</h3>
+<ol><li>
+<strong>«Ваш збіг дня» — спільна картка з двох відповідей.</strong>
+<ul><li>
+<strong>Звідки:</strong> Spotify Blend будує один плейлист із двох смаків і показує відсоток збігу та пісню, що вас об'єднує <a href="https://techcrunch.com/?p=2196189" target="_blank" rel="noopener">TechCrunch</a> · <a href="https://www.hypebot.com/4-ways-to-use-spotifys-new-blend-shared-playlists-to-interact-with-fans/" target="_blank" rel="noopener">Hypebot</a>.
+</li><li>
+<strong>У нас:</strong> після розкриття — одна картка: де збіглися, де ні, і зачіпка для розмови. Картка зберігається в журналі пари.
+</li><li>
+<strong>Чому</strong> (<em>висновок</em>): закриває найслабші місця ринку — місток до розмови і спільний артефакт. Працює без AI (бриф, розділ 6): збіги задає структура питання.
+</li></ul>
+</li><li>
+<strong>Реакція на відповідь партнера за один дотик.</strong>
+<ul><li>
+<strong>Звідки:</strong> у BeReal це RealMoji, селфі з емоцією як реакція <a href="https://petapixel.com/bereal-guide/" target="_blank" rel="noopener">PetaPixel</a>. У Strava — kudos: у 2017 році їх було 2,3 млрд <a href="https://www.thedrum.com/news/2018/07/09/strava-thumbs-down-facebook-likes-explains-why-sweating-kudos-better" target="_blank" rel="noopener">The Drum</a>.
+</li><li>
+<strong>У нас:</strong> одна дія «я тебе почув(ла)», лише між двома, з пушем «твою відповідь побачили».
+</li><li>
+<strong>Чому</strong> (<em>висновок</em>): дає ще один привід повернутися, прив'язаний до партнера (бриф, розділ 8).
+</li></ul>
+</li><li>
+<strong>Чіткий кінець дня і приватний архів «наше».</strong>
+<ul><li>
+<strong>Звідки — Wordle:</strong> після гри показує екран завершення дня, нова головоломка з'являється опівночі <a href="https://thenewyorktimeshelpcenter.helpjuice.com/24611727334932-Wordle" target="_blank" rel="noopener">NYT Help</a>.
+</li><li>
+<strong>Звідки — BeReal Memories:</strong> приватний архів власних постів <a href="https://help.bereal.com/hc/en-us/articles/7531349180829" target="_blank" rel="noopener">BeReal Help</a>. Сторінка віддала помилку 403, тож факт узято з її опису в пошуку: <span class="tag warn">дані не підтверджені</span> напряму.
+</li><li>
+<strong>У нас:</strong> екран «на сьогодні все» з часом наступного питання. Архів пари не зникає без підписки.
+</li><li>
+<strong>Чому</strong> (<em>висновок</em>): прямо реалізує принцип брифу «не забирати безкоштовне, зберігати дані» (розділ 8). Це протилежність Paired, де відповіді партнера після пробного періоду, за відгуком, стали недоступні <a href="https://apps.apple.com/us/app/id1469609343" target="_blank" rel="noopener">AS</a>.
+</li></ul>
+</li></ol>
+<h3>Що не спрацює: публічне поширення і змагання з іншими парами</h3>
+<ul><li>
+<strong>Звідки:</strong> у Wordle кнопка Share копіює сітку результату без слова <a href="https://www.techradar.com/news/wordle-is-distracting-everyone-in-2022-but-what-is-it" target="_blank" rel="noopener">TechRadar</a>. У Strava kudos ставлять підписники <a href="https://www.thedrum.com/news/2018/07/09/strava-thumbs-down-facebook-likes-explains-why-sweating-kudos-better" target="_blank" rel="noopener">The Drum</a>.
+</li><li>
+<strong>Чому не в нас</strong> (<em>висновок</em>):
+<ul><li>
+<strong>зміст інтимний.</strong> Бриф: нічого не надсилається автоматично, самопізнання приватне (розділи 4 і 5);
+</li><li>
+<strong>ризик у небезпечних стосунках.</strong> Публічний слід може стати інструментом контролю (бриф, розділ 5);
+</li><li>
+<strong>порівняння з іншими парами</strong> перетворює близькість на оцінку. Про Paired на Reddit уже пишуть, що питання «prompt arguments rather than dialogue». Цитата є в <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/03-competitors.md" target="_blank" rel="noopener">notes/03-competitors.md</a> (картка Paired), але без посилання на конкретний тред: <span class="tag warn">дані не підтверджені</span>.
+</li></ul>
+</li></ul>
+</section>
+<section id="patterns">
+<h2>3. Патерни</h2>
+<p>Повна версія з п'ятьма патернами — <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/06-patterns.md" target="_blank" rel="noopener">notes/06-patterns.md</a>.</p>
+<p><strong>Ключова задача:</strong> щодня за 2–5 хвилин дати парі привід зблизитися. Кожен ділиться чимось особистим, і обидва бачать це лише тоді, коли поділилися обоє. Джерело — бриф, розділи 1, 3, 7 і 8.</p>
+<h3>Обраний патерн: закрита відповідь і взаємне відкриття</h3>
+<p><strong>Як працює:</strong></p>
+<ul><li>
+одне питання на день;
+</li><li>
+кожен відповідає окремо, у свій час;
+</li><li>
+відповідь партнера закрита, доки не відповів сам;
+</li><li>
+коли відповіли обоє, відповіді відкриваються одночасно.
+</li></ul>
+<p>Де застосовується — Paired, Agapé, SumOne (джерела в «Трьох спільних патернах» вище).</p>
+<p><strong>Чому саме він під наш контекст</strong> (<em>висновок</em> зі звірки з брифом):</p>
+<ol><li>
+<strong>Це правило приватності брифу, перекладене в UX.</strong> Розділ 4: парні відповіді видно партнеру лише після того, як він теж відповів. На стеку з розділу 11 це правило забезпечує сама база даних (Row Level Security у Supabase), а не лише інтерфейс.
+</li><li>
+<strong>Працює для всіх пар з брифу і вкладається у 2–5 хвилин.</strong>
+<ul><li>
+Асинхронність однаково підходить парам, що живуть разом, і парам на відстані (розділ 2).
+</li><li>
+Пуш «партнер уже відповів, твоя черга» з розділу 8 існує лише в цьому патерні.
+</li></ul>
+</li><li>
+<strong>Знімає холодний старт удвох і дає виміряти головне питання MVP.</strong>
+<ul><li>
+Людина відповідає соло ще до того, як партнер приєднався, і це привід для запрошення (розділ 14).
+</li><li>
+Кожен крок видно в даних: відповів → запросив → партнер відповів → відкрили. Це ті самі метрики з розділу 7.
+</li></ul>
+</li></ol>
+<p><strong>Умова:</strong> патерн спрацює лише з сильним завершенням — трьома механізмами з бенчмарку вище. Без них ми повторимо Paired і Agapé саме там, де ринок найслабший.</p>
+<p><strong>Інші патерни коротко:</strong></p>
+<ul><li>
+<strong>«Вгадай партнера»</strong> — другий, за умови: питання емоційні, а не про факти, і без рахунку між партнерами. Тоді це формат того самого щоденного ритуалу.
+</li><li>
+<strong>«Розмова поруч за картками»</strong> не підходить як основа щоденного ритуалу. Він не працює для пар на відстані і соло, не дає події для пушу, а вся дія лишається поза застосунком.
+</li></ul>
+</section>
+<section id="conclusions">
+<h2>4. Висновки</h2>
+<p>Кожен рядок — прогалина ринку, наша гіпотеза і розділ цього файлу, з якого вона випливає. Усі гіпотези — <strong>[гіпотеза]</strong> у термінах брифу. Їх ще треба перевірити, це не факти.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>#</th>
+<th>Прогалина</th>
+<th>Гіпотеза</th>
+<th>Звідки випливає</th>
+</tr></thead><tbody>
+<tr><td>1</td><td>Після взаємного розкриття немає спільного результату: лише дві відповіді, стрік або бали.</td><td>Якщо після розкриття показувати картку «Ваш збіг дня» із зачіпкою для розмови, частка пар, активних ≥3 дні на тиждень на 2-му тижні (бриф, розділ 7), буде вищою, ніж при простому показі двох відповідей.</td><td>2. Бенчмарк — вимір і механізм 1; 1. Конкуренти — матриця, вісь 4</td></tr>
+<tr><td>2</td><td>Після відкриття партнер ніяк не дає знати, що прочитав. Реакція можлива лише окремим повідомленням або чатом.</td><td>Якщо дати реакцію одним дотиком з пушем «твою відповідь побачили», частка днів, коли відповідають обоє, зросте, а D7 пари буде вищим.</td><td>2. Бенчмарк — механізм 2</td></tr>
+<tr><td>3</td><td>Втрату продають: платне відновлення стріку, відповіді партнера після пробного періоду, за відгуком, недоступні.</td><td>М'який стрік пари з безкоштовною заморозкою і архів, що не зникає без підписки, підвищать D30 retention пар без падіння конверсії в підписку.</td><td>1. Конкуренти — відмінність 2; 2. Бенчмарк — механізм 3</td></tr>
+<tr><td>4</td><td>Публічно ніхто не показує соло-ритуал до приходу партнера, а Agapé прямо каже одиноким «not at this time».</td><td>Якщо людина може відповісти на питання дня соло і її відповідь чекає партнера, більше людей запросить партнера, і більше запрошених приєднаються (бриф, розділ 7: метрика «Пара»).</td><td>1. Конкуренти — відмінність 1; 3. Патерни — причина 3</td></tr>
+<tr><td>5</td><td>Перший екран продає соцдоказ, але не показує, як іде ритуал і як підключити партнера.</td><td>Якщо стор, лендинг і онбординг показують сам ритуал (дві закриті відповіді → відкриття) і крок «запроси партнера», частка тих, хто пройшов перший ритуал (активація, розділ 7), буде вищою.</td><td>1. Конкуренти — патерн 3 і матриця, вісь 1</td></tr>
+<tr><td>6</td><td>Набір EN, ES, PT, UK не закриває ніхто, української немає ні в кого.</td><td>Повна локалізація з першого дня дасть у ES-, PT- і UK-мовних користувачів активацію, не нижчу за англомовних. Без неї ці ринки лишаються незайнятими.</td><td>1. Конкуренти — відмінність 3 і матриця, вісь 5</td></tr>
+<tr><td>7</td><td>Питання повторюються і закінчуються: Agapé за рік <a href="https://apps.apple.com/us/app/id1507907556" target="_blank" rel="noopener">AS</a>, SumOne після 2 років <a href="https://apps.apple.com/us/app/id1469506430" target="_blank" rel="noopener">AS</a>.</td><td>Чергування форматів у ритуалі (відверте питання і «вгадай партнера» на емоцію) відсуне падіння активності пари порівняно з одним форматом.</td><td>1. Конкуренти — матриця, вісь 4; 3. Патерни — другий патерн</td></tr>
+</tbody></table></div>
+</section>
+<section id="sources">
+<h2>Джерела</h2>
+<ul><li>
+Нотатки кроків: <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/03-competitors.md" target="_blank" rel="noopener">03 — конкуренти</a> · <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/04-matrix.md" target="_blank" rel="noopener">04 — матриця</a> · <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/05-benchmark.md" target="_blank" rel="noopener">05 — бенчмарк</a> · <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/06-patterns.md" target="_blank" rel="noopener">06 — патерни</a>
+</li><li>
+Скріни публічних сторінок: <a href="https://github.com/natocheiev/partnerspeak/tree/main/research/screens/" target="_blank" rel="noopener">research/screens/</a>
+</li><li>
+Бриф: <a href="https://github.com/natocheiev/partnerspeak/blob/main/CLAUDE.md" target="_blank" rel="noopener">CLAUDE.md</a>
+</li><li>
+Посилання на окремі факти — поруч із кожним фактом вище і в матриці.
+</li></ul>
+</section>
+    <footer>Згенеровано з <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/research.md" target="_blank" rel="noopener">research/research.md</a>. Джерело правди — markdown-файл, ця сторінка — його подання.</footer>
+  </main>
+</body>
+</html>
