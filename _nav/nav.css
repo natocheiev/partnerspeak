@@ -1,0 +1,91 @@
+/* Навігатор репо — службовий інструмент, не частина продукту. Нейтральний стиль. */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 16px 12px;
+  background: #f4f4f5;
+  border-right: 1px solid #e4e4e7;
+  font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #3f3f46;
+  z-index: 1000;
+}
+
+.nav-branch {
+  margin: 16px 8px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #71717a;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list .nav-list {
+  padding-left: 14px;
+}
+
+.nav-link {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: #e4e4e7;
+}
+
+.nav-current {
+  background: #e4e4e7;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.has-nav body {
+  margin-left: 220px;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    position: static;
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e4e4e7;
+  }
+
+  .has-nav body {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background: #18181b;
+    border-color: #27272a;
+    color: #a1a1aa;
+  }
+
+  .nav-branch {
+    color: #71717a;
+  }
+
+  .nav-link:hover,
+  .nav-current {
+    background: #27272a;
+  }
+
+  .nav-current {
+    color: #fafafa;
+  }
+}
