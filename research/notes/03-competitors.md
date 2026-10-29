@@ -250,7 +250,7 @@ Reddit для цієї групи не перевіряв: вона про ет�
 |---|---|---|---|
 | Paired | хард | App Store (скріни, ціни, відгуки); сайт: журнал статей за темами, /experts, /research, /crisis-support, /premium, FAQ | сам застосунок, щоденні питання, квізи |
 | Agapé | хард | App Store (ціни, відгуки); лендинг; About, Terms, Privacy на Notion; публікації дослідження (Journal of Family Psychology, огляд MilitaryREACH) | застосунок |
-| SumOne | хард | App Store (опис, ціни, мови, відгуки); сайт sumone.co (вміст не перевіряв) | застосунок |
+| SumOne | хард | App Store (опис, ціни, мови, відгуки); Google Play (опис, відгуки); сайт sumone.co — заглушка без опису продукту | застосунок |
 | Cozy Couples | хард | App Store (47 тис. оцінок і відгуки); сайт cozycouples.co (вміст перевірити) | застосунок |
 | Flamme | хард | App Store; Product Hunt; стаття TechCrunch про ребрендинг | застосунок, AI-коуч (Premium) |
 | Gottman Card Decks | софт | App Store; статті й ресурси на gottman.com; сам застосунок безкоштовний (чи потрібен акаунт — перевірити) | — |
@@ -280,7 +280,7 @@ Reddit для цієї групи не перевіряв: вона про ет�
 Тому я рахував лише згадки від звичайних користувачів, а підозрілі позначив.
 
 ### Вилучено зі списку
-- **Candle** (Encore AI Labs, Inc., Y Combinator F24; сайт trycandle.app). Органічних згадок мало: «i use candle», і одразу «we really don't use it much». Автор треду: «I don't like the UI of candle». Популярність переважно маркетингова. Замінено на SumOne 29.10.2026. У матриці [04-matrix.md](04-matrix.md) Candle поки лишається.
+- **Candle** (Encore AI Labs, Inc., Y Combinator F24; сайт trycandle.app). Органічних згадок мало: «i use candle», і одразу «we really don't use it much». Автор треду: «I don't like the UI of candle». Популярність переважно маркетингова. Замінено на SumOne 29.10.2026. У матриці [04-matrix.md](04-matrix.md) теж замінено на SumOne 29.10.2026.
 
 ### Кандидати з Reddit, яких не додано
 
