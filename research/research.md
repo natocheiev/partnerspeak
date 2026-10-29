@@ -93,6 +93,23 @@
    - Agapé, Couple Joy, Gottman: лише EN за App Store [AS Agapé](https://apps.apple.com/us/app/id1507907556) · [AS Couple Joy](https://apps.apple.com/us/app/id1624758651) · [AS Gottman](https://apps.apple.com/us/app/id1292398843).
    - Українська — ні в кого. Наш набір EN, ES, PT, UK (бриф, розділ 2) не закриває ніхто з шістьох.
 
+
+### Що видно на скрінах застосунків (галереї сторів)
+
+Оригінальні картинки з App Store і Google Play лежать по теках `research/screens/<конкурент>/`. Перелік і джерела — [notes/screens-public.md](notes/screens-public.md). Це маркетингові макети, а не записи реального використання.
+
+- **Paired:** розкриття відповіді партнера з замком [скрін](screens/paired/appstore-03.jpg). Екран «Strength / Growth» з висновками про пару [скрін](screens/paired/appstore-06.jpg). «Weekly missions for your partner» — завдання на кілька днів [скрін](screens/paired/appstore-08.jpg).
+- **Paired, справжній екран:** підключення партнера — свій код або код партнера [скрін](screens/paired/help-pair-with-partner.png) · [help](https://support.paired.com/en/articles/164636-how-do-i-pair-with-my-partner).
+- **SumOne:** відповіді обох під одним питанням [скрін](screens/sumone/appstore-03.jpg). Кнопка «Nudge» — нагадати партнеру відповісти [скрін](screens/sumone/appstore-06.jpg). Обмін pebbles на предмети [скрін](screens/sumone/appstore-07.jpg).
+- **Agapé:** «Daily match» — з ким із близьких сьогодні відповідати [скрін](screens/agape/appstore-04.jpg). «Memory Scrapbook» [скрін](screens/agape/appstore-06.jpg).
+- **Couple Joy:** питання наборами з лічильником «2/7» — є чіткий кінець набору [скрін](screens/couplejoy/appstore-05.jpg) · [скрін](screens/couplejoy/appstore-06.jpg). Карта стосунків [скрін](screens/couplejoy/appstore-07.jpg).
+- **BeReal:** чужі пости розмиті до свого — «Unlock Hidden Pics by Posting Yours» [скрін](screens/bereal/appstore-05.jpg). Реакції RealMojis [скрін](screens/bereal/appstore-06.jpg).
+- **Gottman Card Decks:** справжні екрани колод і карток [скрін](screens/gottman/appstore-01.jpg).
+
+*Висновок:* Paired і SumOne додають «підштовхування» партнера (місії, Nudge), а Couple Joy — чіткий кінець набору. Як виглядає момент після відкриття відповідей у реальному користуванні, із цих макетів не видно: доступ обмежений.
+
+Відео-огляди з проходженням застосунків (кадри не зняті) — у [notes/screens-public.md](notes/screens-public.md).
+
 ---
 
 ## 2. Бенчмарк

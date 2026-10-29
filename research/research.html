@@ -80,6 +80,10 @@
     .shot img { display: block; width: 100%; height: auto; aspect-ratio: 390 / 600; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--border); background: #fff; margin-bottom: 6px; }
     .shot:hover img { border-color: var(--accent); }
 
+    .store { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 0 0 20px; }
+    .store .shots { min-width: 0; }
+    .strip { display: grid; grid-auto-flow: column; grid-auto-columns: 132px; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+    .strip .shot img { aspect-ratio: auto; height: 236px; object-fit: cover; }
     footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); padding-top: 16px; }
 
     @media (max-width: 700px) {
@@ -294,6 +298,81 @@ Agapé, Couple Joy, Gottman: лише EN за App Store <a href="https://apps.ap
 Українська — ні в кого. Наш набір EN, ES, PT, UK (бриф, розділ 2) не закриває ніхто з шістьох.
 </li></ul>
 </li></ol>
+<h3>Що видно на скрінах застосунків (галереї сторів)</h3>
+<p>Оригінальні картинки з App Store і Google Play лежать по теках <code>research/screens/&lt;конкурент&gt;/</code>. Перелік і джерела — <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/screens-public.md" target="_blank" rel="noopener">notes/screens-public.md</a>. Це маркетингові макети, а не записи реального використання.</p>
+<div class="store">
+<figure class="shots"><figcaption>Paired</figcaption><div class="strip">
+<a class="shot" href="screens/paired/appstore-01.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-01.jpg" alt="Paired — App Store 01" loading="lazy"><span>App Store 01</span></a>
+<a class="shot" href="screens/paired/appstore-02.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-02.jpg" alt="Paired — App Store 02" loading="lazy"><span>App Store 02</span></a>
+<a class="shot" href="screens/paired/appstore-03.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-03.jpg" alt="Paired — App Store 03" loading="lazy"><span>App Store 03</span></a>
+<a class="shot" href="screens/paired/appstore-04.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-04.jpg" alt="Paired — App Store 04" loading="lazy"><span>App Store 04</span></a>
+<a class="shot" href="screens/paired/appstore-05.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-05.jpg" alt="Paired — App Store 05" loading="lazy"><span>App Store 05</span></a>
+<a class="shot" href="screens/paired/appstore-06.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-06.jpg" alt="Paired — App Store 06" loading="lazy"><span>App Store 06</span></a>
+<a class="shot" href="screens/paired/appstore-07.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-07.jpg" alt="Paired — App Store 07" loading="lazy"><span>App Store 07</span></a>
+<a class="shot" href="screens/paired/appstore-08.jpg" target="_blank" rel="noopener"><img src="screens/paired/appstore-08.jpg" alt="Paired — App Store 08" loading="lazy"><span>App Store 08</span></a>
+<a class="shot" href="screens/paired/help-pair-with-partner.png" target="_blank" rel="noopener"><img src="screens/paired/help-pair-with-partner.png" alt="Paired — довідка" loading="lazy"><span>довідка</span></a>
+</div></figure>
+<figure class="shots"><figcaption>SumOne</figcaption><div class="strip">
+<a class="shot" href="screens/sumone/appstore-01.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-01.jpg" alt="SumOne — App Store 01" loading="lazy"><span>App Store 01</span></a>
+<a class="shot" href="screens/sumone/appstore-02.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-02.jpg" alt="SumOne — App Store 02" loading="lazy"><span>App Store 02</span></a>
+<a class="shot" href="screens/sumone/appstore-03.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-03.jpg" alt="SumOne — App Store 03" loading="lazy"><span>App Store 03</span></a>
+<a class="shot" href="screens/sumone/appstore-04.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-04.jpg" alt="SumOne — App Store 04" loading="lazy"><span>App Store 04</span></a>
+<a class="shot" href="screens/sumone/appstore-05.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-05.jpg" alt="SumOne — App Store 05" loading="lazy"><span>App Store 05</span></a>
+<a class="shot" href="screens/sumone/appstore-06.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-06.jpg" alt="SumOne — App Store 06" loading="lazy"><span>App Store 06</span></a>
+<a class="shot" href="screens/sumone/appstore-07.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-07.jpg" alt="SumOne — App Store 07" loading="lazy"><span>App Store 07</span></a>
+<a class="shot" href="screens/sumone/appstore-08.jpg" target="_blank" rel="noopener"><img src="screens/sumone/appstore-08.jpg" alt="SumOne — App Store 08" loading="lazy"><span>App Store 08</span></a>
+</div></figure>
+<figure class="shots"><figcaption>Agapé</figcaption><div class="strip">
+<a class="shot" href="screens/agape/appstore-01.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-01.jpg" alt="Agapé — App Store 01" loading="lazy"><span>App Store 01</span></a>
+<a class="shot" href="screens/agape/appstore-02.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-02.jpg" alt="Agapé — App Store 02" loading="lazy"><span>App Store 02</span></a>
+<a class="shot" href="screens/agape/appstore-03.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-03.jpg" alt="Agapé — App Store 03" loading="lazy"><span>App Store 03</span></a>
+<a class="shot" href="screens/agape/appstore-04.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-04.jpg" alt="Agapé — App Store 04" loading="lazy"><span>App Store 04</span></a>
+<a class="shot" href="screens/agape/appstore-05.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-05.jpg" alt="Agapé — App Store 05" loading="lazy"><span>App Store 05</span></a>
+<a class="shot" href="screens/agape/appstore-06.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-06.jpg" alt="Agapé — App Store 06" loading="lazy"><span>App Store 06</span></a>
+<a class="shot" href="screens/agape/appstore-07.jpg" target="_blank" rel="noopener"><img src="screens/agape/appstore-07.jpg" alt="Agapé — App Store 07" loading="lazy"><span>App Store 07</span></a>
+</div></figure>
+<figure class="shots"><figcaption>Gottman Card Decks</figcaption><div class="strip">
+<a class="shot" href="screens/gottman/appstore-01.jpg" target="_blank" rel="noopener"><img src="screens/gottman/appstore-01.jpg" alt="Gottman Card Decks — App Store 01" loading="lazy"><span>App Store 01</span></a>
+<a class="shot" href="screens/gottman/appstore-02.jpg" target="_blank" rel="noopener"><img src="screens/gottman/appstore-02.jpg" alt="Gottman Card Decks — App Store 02" loading="lazy"><span>App Store 02</span></a>
+<a class="shot" href="screens/gottman/appstore-03.jpg" target="_blank" rel="noopener"><img src="screens/gottman/appstore-03.jpg" alt="Gottman Card Decks — App Store 03" loading="lazy"><span>App Store 03</span></a>
+<a class="shot" href="screens/gottman/appstore-04.jpg" target="_blank" rel="noopener"><img src="screens/gottman/appstore-04.jpg" alt="Gottman Card Decks — App Store 04" loading="lazy"><span>App Store 04</span></a>
+<a class="shot" href="screens/gottman/appstore-05.jpg" target="_blank" rel="noopener"><img src="screens/gottman/appstore-05.jpg" alt="Gottman Card Decks — App Store 05" loading="lazy"><span>App Store 05</span></a>
+</div></figure>
+<figure class="shots"><figcaption>BeReal</figcaption><div class="strip">
+<a class="shot" href="screens/bereal/appstore-01.jpg" target="_blank" rel="noopener"><img src="screens/bereal/appstore-01.jpg" alt="BeReal — App Store 01" loading="lazy"><span>App Store 01</span></a>
+<a class="shot" href="screens/bereal/appstore-02.jpg" target="_blank" rel="noopener"><img src="screens/bereal/appstore-02.jpg" alt="BeReal — App Store 02" loading="lazy"><span>App Store 02</span></a>
+<a class="shot" href="screens/bereal/appstore-03.jpg" target="_blank" rel="noopener"><img src="screens/bereal/appstore-03.jpg" alt="BeReal — App Store 03" loading="lazy"><span>App Store 03</span></a>
+<a class="shot" href="screens/bereal/appstore-04.jpg" target="_blank" rel="noopener"><img src="screens/bereal/appstore-04.jpg" alt="BeReal — App Store 04" loading="lazy"><span>App Store 04</span></a>
+<a class="shot" href="screens/bereal/appstore-05.jpg" target="_blank" rel="noopener"><img src="screens/bereal/appstore-05.jpg" alt="BeReal — App Store 05" loading="lazy"><span>App Store 05</span></a>
+<a class="shot" href="screens/bereal/appstore-06.jpg" target="_blank" rel="noopener"><img src="screens/bereal/appstore-06.jpg" alt="BeReal — App Store 06" loading="lazy"><span>App Store 06</span></a>
+</div></figure>
+<figure class="shots"><figcaption>Couple Joy</figcaption><div class="strip">
+<a class="shot" href="screens/couplejoy/appstore-01.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-01.jpg" alt="Couple Joy — App Store 01" loading="lazy"><span>App Store 01</span></a>
+<a class="shot" href="screens/couplejoy/appstore-02.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-02.jpg" alt="Couple Joy — App Store 02" loading="lazy"><span>App Store 02</span></a>
+<a class="shot" href="screens/couplejoy/appstore-03.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-03.jpg" alt="Couple Joy — App Store 03" loading="lazy"><span>App Store 03</span></a>
+<a class="shot" href="screens/couplejoy/appstore-04.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-04.jpg" alt="Couple Joy — App Store 04" loading="lazy"><span>App Store 04</span></a>
+<a class="shot" href="screens/couplejoy/appstore-05.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-05.jpg" alt="Couple Joy — App Store 05" loading="lazy"><span>App Store 05</span></a>
+<a class="shot" href="screens/couplejoy/appstore-06.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-06.jpg" alt="Couple Joy — App Store 06" loading="lazy"><span>App Store 06</span></a>
+<a class="shot" href="screens/couplejoy/appstore-07.jpg" target="_blank" rel="noopener"><img src="screens/couplejoy/appstore-07.jpg" alt="Couple Joy — App Store 07" loading="lazy"><span>App Store 07</span></a>
+</div></figure>
+</div>
+<ul><li>
+<strong>Paired:</strong> розкриття відповіді партнера з замком <a href="screens/paired/appstore-03.jpg">скрін</a>. Екран «Strength / Growth» з висновками про пару <a href="screens/paired/appstore-06.jpg">скрін</a>. «Weekly missions for your partner» — завдання на кілька днів <a href="screens/paired/appstore-08.jpg">скрін</a>.
+</li><li>
+<strong>Paired, справжній екран:</strong> підключення партнера — свій код або код партнера <a href="screens/paired/help-pair-with-partner.png">скрін</a> · <a href="https://support.paired.com/en/articles/164636-how-do-i-pair-with-my-partner" target="_blank" rel="noopener">help</a>.
+</li><li>
+<strong>SumOne:</strong> відповіді обох під одним питанням <a href="screens/sumone/appstore-03.jpg">скрін</a>. Кнопка «Nudge» — нагадати партнеру відповісти <a href="screens/sumone/appstore-06.jpg">скрін</a>. Обмін pebbles на предмети <a href="screens/sumone/appstore-07.jpg">скрін</a>.
+</li><li>
+<strong>Agapé:</strong> «Daily match» — з ким із близьких сьогодні відповідати <a href="screens/agape/appstore-04.jpg">скрін</a>. «Memory Scrapbook» <a href="screens/agape/appstore-06.jpg">скрін</a>.
+</li><li>
+<strong>Couple Joy:</strong> питання наборами з лічильником «2/7» — є чіткий кінець набору <a href="screens/couplejoy/appstore-05.jpg">скрін</a> · <a href="screens/couplejoy/appstore-06.jpg">скрін</a>. Карта стосунків <a href="screens/couplejoy/appstore-07.jpg">скрін</a>.
+</li><li>
+<strong>BeReal:</strong> чужі пости розмиті до свого — «Unlock Hidden Pics by Posting Yours» <a href="screens/bereal/appstore-05.jpg">скрін</a>. Реакції RealMojis <a href="screens/bereal/appstore-06.jpg">скрін</a>.
+</li><li>
+<strong>Gottman Card Decks:</strong> справжні екрани колод і карток <a href="screens/gottman/appstore-01.jpg">скрін</a>.
+</li></ul>
+<p><em class="concl">Висновок:</em> Paired і SumOne додають «підштовхування» партнера (місії, Nudge), а Couple Joy — чіткий кінець набору. Як виглядає момент після відкриття відповідей у реальному користуванні, із цих макетів не видно: <span class="tag muted">доступ обмежений</span>.</p>
+<p>Відео-огляди з проходженням застосунків (кадри не зняті) — у <a href="https://github.com/natocheiev/partnerspeak/blob/main/research/notes/screens-public.md" target="_blank" rel="noopener">notes/screens-public.md</a>.</p>
 </section>
 <section id="benchmark">
 <h2>2. Бенчмарк</h2>

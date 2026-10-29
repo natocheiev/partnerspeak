@@ -24,6 +24,7 @@ iOS-застосунок для стосунків. Пари зближують�
 | Дослідження | [research/](research/) · екрани — [research/screens/](research/screens/) |
 | Конкуренти: хард, софт, аспіраційні | [research/notes/03-competitors.md](research/notes/03-competitors.md) (з перевіркою через Reddit) |
 | Матриця п'яти конкурентів за осями брифу | [research/notes/04-matrix.md](research/notes/04-matrix.md) · скріни — [research/screens/](research/screens/) |
+| Скріни застосунків з публічних джерел (стори, довідка, YouTube) | [research/notes/screens-public.md](research/notes/screens-public.md) |
 | Бенчмарк: як задача завершується | [research/notes/05-benchmark.md](research/notes/05-benchmark.md) |
 | UX-патерни для ключової задачі | [research/notes/06-patterns.md](research/notes/06-patterns.md) |
 | Ресерч: зведення кроків 03–06 | [research/research.md](research/research.md) · сторінка [research/research.html](research/research.html) · [на сайті](https://natocheiev.github.io/partnerspeak/research/research.html) |
